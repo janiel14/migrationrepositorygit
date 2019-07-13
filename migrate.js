@@ -80,7 +80,7 @@ const init = async () => {
         await shell(`git clone ${addUserPassword(git_repo_origin, git_user, git_pass)}`);
         await shell(`cd ${getNameFolder(getRepositoryName(git_repo_origin))} && pwd && git fetch --all`);
         await shell(`cd ${getNameFolder(getRepositoryName(git_repo_origin))} && pwd && git remote rm origin`);
-        await shell(`cd ${getNameFolder(getRepositoryName(git_repo_origin))} && pwd && git remote add origin ${addUserPassword(git_repo_dest)}`);
+        await shell(`cd ${getNameFolder(getRepositoryName(git_repo_origin))} && pwd && git remote add origin ${addUserPassword(git_repo_dest, git_user, git_pass)}`);
         await shell(`cd ${getNameFolder(getRepositoryName(git_repo_origin))} && pwd && git push origin --all`);
         await shell(`rm ${getNameFolder(getRepositoryName(git_repo_origin))} -rfv`);
         console.log("concluído..");
